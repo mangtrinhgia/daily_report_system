@@ -12,4 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+   $("#deselect_file").click(function(){
+      $("#report_file").val(""); 
+   }); 
+   
+   $("#catalog_id").change(function(){
+       var id = $(this).val();
+      $("#report_catalog_id").val(id); 
+   });
+});

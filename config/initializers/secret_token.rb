@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-DailyReportSystem::Application.config.secret_token = '534b41f9cf19d46f3518c91271afc4039777efdc36e21b43e8bae4f71b3e0677bd3d1d05a12155862dd5025fd06f89ec337f215069dc1b89bbb3e6eab6447937'
+DailyReportSystem::Application.config.secret_token = '78a674f0706836e630013f6acf446d642f04f5ae09cd02274710a92fead0dea86d9c42813bbf4bd3a3dea31abf14084915ba1571ab856931b3e555eed2581f14'

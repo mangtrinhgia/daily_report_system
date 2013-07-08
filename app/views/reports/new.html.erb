@@ -1,0 +1,62 @@
+<% provide(:title, 'create report')%> <h1>Daily report</h1>
+<div class="row">
+    <div class="span12">
+        <%= render 'shared/report_error_message' %>
+
+        <div class="row">
+            <%= form_for Report.new do |f|%>
+            <%= f.hidden_field :catalog_id%>
+            <%= f.hidden_field :user_id, value: current_user.id%>
+            <div class="span8">
+                <div class="row">
+                    <div class="row">
+                        <div class="span8">
+                            <%= f.label :content%>
+                            <%= f.text_area :content, rows: '15'%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span1">
+                            <%= f.label :file, "attachment"%>
+                            <button type="button" class="btn" id="deselect_file">
+                                delete
+                            </button>
+                        </div>
+                        <div class="span4">
+                            <%= f.file_field :file %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4 offset4">
+                        <%= f.submit "submit your report", class: "btn btn-large btn-primary",
+                        :confirm => "Do you want to submit now?"%>
+                    </div>
+                </div>
+            </div>
+
+            <%end%>
+
+            <div class="span4">
+                <div class="row">
+                    <div class="span4">
+                        <%= form_for Catalog.new, remote: true do |f| %>
+                        <%= f.label :id,"select catalog"%>
+                        <%= f.collection_select :id, @catalogs_collection, :id, :name, :prompt => true %>
+                        <%= f.submit "how to write report", class: "btn btn-prime"%>
+                        <% end %>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4">
+                        <%= text_area_tag :catalog_document, "no description", :rows => 10,
+                        :disabled => true%>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
